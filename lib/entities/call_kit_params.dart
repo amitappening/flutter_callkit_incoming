@@ -25,6 +25,7 @@ class CallKitParams {
     this.headers,
     this.android,
     this.ios,
+    this.onDecline,
   });
 
   final String? id;
@@ -47,4 +48,7 @@ class CallKitParams {
       _$CallKitParamsFromJson(json);
 
   Map<String, dynamic> toJson() => _$CallKitParamsToJson(this);
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final Function(String reason)? onDecline;
 }
